@@ -1,0 +1,22 @@
+void frente(){
+     OnFwd(OUT_A, 49);
+     OnFwd(OUT_C, 40);
+     Wait(2000);
+}
+
+void gira(){
+   OnRev(OUT_C, 25);
+   Wait(1000);
+}
+
+task main(){
+     int i;
+     for(i = 0; i < 4; i ++){
+           frente();
+           //gira();
+     }
+     
+     /* ITS OFF BABY  */
+     Off(OUT_AC);
+}
+
