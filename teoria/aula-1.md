@@ -1,12 +1,12 @@
 Lego mindstorms
 
-Linguagem de programaÁ„o: NXC, ou seja, linguagem C com comandos do lego.
+Linguagem de programa√ß√£o: NXC, ou seja, linguagem C com comandos do lego.
 
-A CPU do lego È chamada de NXT, e È l· que ficaÁ„o armazenados nossos programas.
+A CPU do lego √© chamada de NXT, e √© l√° que fica√ß√£o armazenados nossos programas.
 
-Ser· utilizado o programa BRCX Command Center para programar ou compilar, mas antes de abrir este software È necess·rop ligar o robÙ e conectar na porta USB do computador.
+Ser√° utilizado o programa BRCX Command Center para programar ou compilar, mas antes de abrir este software √© necess√°rop ligar o rob√¥ e conectar na porta USB do computador.
 
-#Comandos B·sicos:
+#Comandos B√°sicos:
 
 	onfwd(OUT_AC, 70);
 		liga os motores A eC para frente com velocidade de 70%
@@ -18,9 +18,10 @@ Ser· utilizado o programa BRCX Command Center para programar ou compilar, mas an
 		Reverte o motor B com velocidade de 50%
 		
 	wait(2000);
-		Executa o comando anterior por 2000 milÈsimos de segundos antes de executar o prÛximo comando
+		Executa o comando anterior por 2000 mil√©simos de segundos antes de executar o pr√≥ximo comando
 	
 Exemplo:
+```
 	task main(){
 		onfwd(OUT_AC, 75);
 		wait(3000);
@@ -28,4 +29,4 @@ Exemplo:
 		wait(1000);
 		off(OUT_AC);
 	}
-	
+```
