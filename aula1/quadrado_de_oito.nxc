@@ -1,19 +1,22 @@
 void frente(){
-     OnFwd(OUT_A, 49);
-     OnFwd(OUT_C, 40);
-     Wait(2000);
+     OnFwd(OUT_A, 48);
+     OnFwd(OUT_C, 41);
+     Wait(3000);
 }
 
 void gira(){
-   OnRev(OUT_C, 25);
-   Wait(1000);
+     OnFwd(OUT_C, 50);
+     OnRev(OUT_A, 20);
+     Wait(1000);
 }
 
 task main(){
-     int i;
-     for(i = 0; i < 4; i ++){
+     int i, voltas;
+     voltas = 4;
+     for(i = 0; i < voltas; i ++){
            frente();
-           //gira();
+           if(i != voltas - 1)
+                gira();
      }
      
      /* ITS OFF BABY  */
