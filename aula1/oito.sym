@@ -1,0 +1,144 @@
+#SYMBOLS
+Index	Identifier	Type	Flag	Data	Size	RefCount
+0	__D0frente	6	1	0	4	4
+1	__D0main	6	1	4	4	6
+2	__Wait_7qG2_ms_7qG2_000_inline_main	5	1	8	4	2
+3	__signed_stack_001main	6	1	12	4	4
+4	__frente_7qG2_c_7qG2_000	4	1	16	2	2
+5	__frente_7qG2_a_7qG2_000	4	1	18	2	2
+6	__main_7qG2_b_7qG2_000	4	1	20	2	3
+7	__main_7qG2_wait_7qG2_002	4	1	22	2	3
+8	__main_7qG2_a_7qG2_000	4	1	24	2	3
+9	__main_7qG2_i_7qG2_000	4	1	26	2	5
+10	__main_7qG2_voltas_7qG2_000	4	1	28	2	2
+11	__constVal3	2	0	30	1	3
+12	__constVal2	2	0	31	1	2
+13	__constVal0	2	1	32	1	11
+14	__constVal32	2	0	33	1	9
+15	__constVal1	2	0	34	1	1
+16	____initialize_global_data_return	1	1	35	1	3
+17	__PFTmp	1	1	36	1	1
+18	__zfmain	1	1	37	1	6
+19	__frente_return	1	1	38	1	3
+20	__constVal63	2	0	39	1	3
+21	__constVal96	2	0	40	1	3
+22	__OUT_AC	7	0	42	4	1
+23	__OUT_AC.__OUT_AC_type	1	0	0	1	0
+#SOURCES
+Clump	Line	PC	Source
+0	7	0	#line 7 "E:\aula-robotica\aula1\oito.nxc"
+0	8	0		subcall __initialize_global_data, ____initialize_global_data_return
+0	7	2	#line 7 "E:\aula-robotica\aula1\oito.nxc"
+0	10	2	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	11	2		set __main_7qG2_voltas_7qG2_000, 3
+0	10	5	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	10	5	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	10	5	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	11	5		set __main_7qG2_i_7qG2_000, 0
+0	10	8	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	10	8	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	11	8		mov __signed_stack_001main, __main_7qG2_i_7qG2_000
+0	10	10	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	10	10	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	11	10		mov __D0main, __main_7qG2_voltas_7qG2_000
+0	10	12	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	11	12		cmp 0, __zfmain, __signed_stack_001main, __D0main
+0	10	16	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	11	16		mov __D0main, __zfmain
+0	10	18	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	11	18		brtst 4, __NXC_Label_496, __zfmain
+0	10	21	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	11	21		jmp __NXC_Label_497
+0	10	23	#line 10 "E:\aula-robotica\aula1\oito.nxc"
+0	11	23		add __main_7qG2_i_7qG2_000, __main_7qG2_i_7qG2_000, __constVal1
+0	11	27	#line 11 "E:\aula-robotica\aula1\oito.nxc"
+0	12	27		jmp __NXC_Label_495
+0	12	29	#line 12 "E:\aula-robotica\aula1\oito.nxc"
+0	12	29	#line 12 "E:\aula-robotica\aula1\oito.nxc"
+0	12	29	#line 12 "E:\aula-robotica\aula1\oito.nxc"
+0	12	29	#line 12 "E:\aula-robotica\aula1\oito.nxc"
+0	13	29		mod __signed_stack_001main, __main_7qG2_i_7qG2_000, __constVal2
+0	12	33	#line 12 "E:\aula-robotica\aula1\oito.nxc"
+0	12	33	#line 12 "E:\aula-robotica\aula1\oito.nxc"
+0	13	33		set __D0main, 0
+0	12	36	#line 12 "E:\aula-robotica\aula1\oito.nxc"
+0	13	36		cmp 4, __zfmain, __signed_stack_001main, __D0main
+0	12	40	#line 12 "E:\aula-robotica\aula1\oito.nxc"
+0	13	40		mov __D0main, __zfmain
+0	13	42	#line 13 "E:\aula-robotica\aula1\oito.nxc"
+0	14	42		brtst 4, __NXC_Label_505, __zfmain
+0	14	45	#line 14 "E:\aula-robotica\aula1\oito.nxc"
+0	15	45		set __main_7qG2_a_7qG2_000, 80
+0	14	48	#line 14 "E:\aula-robotica\aula1\oito.nxc"
+0	14	48	#line 14 "E:\aula-robotica\aula1\oito.nxc"
+0	15	48	#line 15 "E:\aula-robotica\aula1\oito.nxc"
+0	16	48		set __main_7qG2_b_7qG2_000, 40
+0	15	51	#line 15 "E:\aula-robotica\aula1\oito.nxc"
+0	15	51	#line 15 "E:\aula-robotica\aula1\oito.nxc"
+0	16	51	#line 16 "E:\aula-robotica\aula1\oito.nxc"
+0	17	51		set __main_7qG2_wait_7qG2_002, 2000
+0	16	54	#line 16 "E:\aula-robotica\aula1\oito.nxc"
+0	16	54	#line 16 "E:\aula-robotica\aula1\oito.nxc"
+0	17	54	#line 17 "E:\aula-robotica\aula1\oito.nxc"
+0	18	54		jmp __NXC_Label_512
+0	18	56	#line 18 "E:\aula-robotica\aula1\oito.nxc"
+0	19	56		set __main_7qG2_a_7qG2_000, 30
+0	18	59	#line 18 "E:\aula-robotica\aula1\oito.nxc"
+0	18	59	#line 18 "E:\aula-robotica\aula1\oito.nxc"
+0	19	59	#line 19 "E:\aula-robotica\aula1\oito.nxc"
+0	20	59		set __main_7qG2_b_7qG2_000, 70
+0	19	62	#line 19 "E:\aula-robotica\aula1\oito.nxc"
+0	19	62	#line 19 "E:\aula-robotica\aula1\oito.nxc"
+0	20	62	#line 20 "E:\aula-robotica\aula1\oito.nxc"
+0	21	62		set __main_7qG2_wait_7qG2_002, 3800
+0	20	65	#line 20 "E:\aula-robotica\aula1\oito.nxc"
+0	20	65	#line 20 "E:\aula-robotica\aula1\oito.nxc"
+0	21	65	#line 21 "E:\aula-robotica\aula1\oito.nxc"
+0	21	65	#line 21 "E:\aula-robotica\aula1\oito.nxc"
+0	22	65		mov __frente_7qG2_a_7qG2_000, __main_7qG2_a_7qG2_000
+0	21	67	#line 21 "E:\aula-robotica\aula1\oito.nxc"
+0	21	67	#line 21 "E:\aula-robotica\aula1\oito.nxc"
+0	22	67		mov __frente_7qG2_c_7qG2_000, __main_7qG2_b_7qG2_000
+0	21	69	#line 21 "E:\aula-robotica\aula1\oito.nxc"
+0	22	69	#line 22 "E:\aula-robotica\aula1\oito.nxc"
+0	23	69		subcall frente, __frente_return
+0	22	71	#line 22 "E:\aula-robotica\aula1\oito.nxc"
+0	22	71	#line 22 "E:\aula-robotica\aula1\oito.nxc"
+0	23	71		mov __Wait_7qG2_ms_7qG2_000_inline_main, __main_7qG2_wait_7qG2_002
+0	22	73	#line 22 "E:\aula-robotica\aula1\oito.nxc"
+0	7921	73	#line 7921 "NXCDefs.h"
+0	7922	73		wait2 NA, __Wait_7qG2_ms_7qG2_000_inline_main
+0	7921	76	#line 7921 "NXCDefs.h"
+0	23	76	#line 23 "E:\aula-robotica\aula1\oito.nxc"
+0	26	76	#line 26 "E:\aula-robotica\aula1\oito.nxc"
+0	27	76		jmp __NXC_Label_498
+0	26	78	#line 26 "E:\aula-robotica\aula1\oito.nxc"
+0	27	78	#line 27 "E:\aula-robotica\aula1\oito.nxc"
+0	28	78	#pragma macro 7
+0	28	78		setout __OUT_AC, 2, __constVal0, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+0	3748	101	#line 3748 "E:\aula-robotica\aula1\oito.nxc"
+0	27	101	#line 27 "E:\aula-robotica\aula1\oito.nxc"
+0	28	101		exit -1, -1
+1	2	0	#line 2 "E:\aula-robotica\aula1\oito.nxc"
+1	3	0		mov __D0frente, __frente_7qG2_a_7qG2_000
+1	3	2	#line 3 "E:\aula-robotica\aula1\oito.nxc"
+1	4	2	#pragma macro 7
+1	4	2		setout __constVal0, 2, __D0frente, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+1	3573	25	#line 3573 "E:\aula-robotica\aula1\oito.nxc"
+1	3	25	#line 3 "E:\aula-robotica\aula1\oito.nxc"
+1	3	25	#line 3 "E:\aula-robotica\aula1\oito.nxc"
+1	4	25		mov __D0frente, __frente_7qG2_c_7qG2_000
+1	4	27	#line 4 "E:\aula-robotica\aula1\oito.nxc"
+1	5	27	#pragma macro 7
+1	5	27		setout __constVal2, 2, __D0frente, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+1	3580	50	#line 3580 "E:\aula-robotica\aula1\oito.nxc"
+1	4	50	#line 4 "E:\aula-robotica\aula1\oito.nxc"
+1	6	50	#line 6 "E:\aula-robotica\aula1\oito.nxc"
+1	7	50		subret __frente_return
+2	30	0	#line 30 "E:\aula-robotica\aula1\oito.nxc"
+2	31	0		subret ____initialize_global_data_return
+#CLUMPS
+Clump	Name	Offset	File
+0	main	0	E:\aula-robotica\aula1\oito.nxc
+1	frente	104	E:\aula-robotica\aula1\oito.nxc
+2	__initialize_global_data	156	E:\aula-robotica\aula1\oito.nxc

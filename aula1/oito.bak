@@ -1,0 +1,29 @@
+
+void frente(int a, int c){
+     OnFwd(OUT_A, a);
+     OnFwd(OUT_C, c);
+}
+
+task main(){
+     int i, voltas,a,b,c;
+     voltas = 8;
+     
+     a = 40;
+     b = 50;
+     
+     for(i = 0; i < voltas; i ++){
+     
+           if(i % 2 == 0) {
+                c = a;
+                a = b;
+                b = c;
+           }
+           
+           frente(a, b);
+           Wait(2000);
+     }
+
+     /* ITS OFF BABY  */
+     Off(OUT_AC);
+}
+
