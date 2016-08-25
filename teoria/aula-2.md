@@ -8,9 +8,9 @@
 ##Exemplo (pg. 18 tutorial):
 ```
 	task main(){
-		SetSensor(In_1, Sensor.TOUCH);
+		SetSensor(IN_1, SENSOR_TOUCH);
 		OnFwd(OUT_AC, 75);
-		until(Sensor.1 == 1);
+		until(SENSOR_1 == 1);
 		Off(OUT_AC);
 	}
 ```
