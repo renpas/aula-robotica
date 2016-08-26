@@ -1,0 +1,12 @@
+task main(){
+    SetSensor(IN_1, SENSOR_TOUCH);
+		
+		while(1){
+        OnFwd(OUT_AC, 75);
+        until(SENSOR_1 == 1);
+        OnRev(OUT_C, 75);
+        OnRev(OUT_A, 100);
+        Wait(1000);
+        
+		}
+	}
