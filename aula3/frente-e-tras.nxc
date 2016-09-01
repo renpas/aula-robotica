@@ -1,14 +1,49 @@
+int direcao = 1;
 
+void frente(){
+         OnFwd(OUT_AC, 50);
+         direcao = 1;
+}
+
+void tras(){
+         OnRev(OUT_AC, 50);
+         direcao = 0;
+
+}
+void inverte(){
+           if(direcao){
+                       tras();
+           }else{
+                 frente();
+           }
+}
 task main(){
      SetSensor(IN_1, SENSOR_TOUCH);
      SetSensor(IN_4, SENSOR_TOUCH);
-     
-     int direcao = 1;
+     SetSensorSound(IN_3);
+     frente();
 
      while(1){
-             OnFwd(OUT_AC, 75 * direcao);
-             if(SENSOR_1 == 1 || SENSOR_4 == 1)
-                         direcao *= -1;
+
+             if(SENSOR_1 == 1){
+                         frente();
+                           Wait(300);
+             }
+             if(SENSOR_4 == 1){
+                         tras();
+                         Wait(300);
+             }
+             if(SENSOR_3 > 70){
+                         inverte();
+                         Wait(300);
+             }
      }
 
 }
+
+
+//profpberton@gmail.com
+
+
+
+
