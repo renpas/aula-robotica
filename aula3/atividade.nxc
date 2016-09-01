@@ -1,24 +1,24 @@
 void direita(){
-     OnRev(OUT_C, 75);
-     OnRev(OUT_A, 100);
-     Wait(1000);
+     OnRev(OUT_C, 50);
+     OnRev(OUT_A, 75);
+     Wait(500);
 }
 
 void esquerda(){
-     OnRev(OUT_A, 75);
-     OnRev(OUT_C, 100);
-     Wait(1000);
+     OnRev(OUT_A, 50);
+     OnRev(OUT_C, 75);
+     Wait(500);
 }
 
 task main(){
      SetSensor(IN_1, SENSOR_TOUCH);
-     SetSensor(IN_2, SENSOR_TOUCH);
+     SetSensor(IN_4, SENSOR_TOUCH);
      
      while(1){
              OnFwd(OUT_AC, 75);
-             if(SENSOR1 == 1);
+             if(SENSOR_1 == 1)
                         esquerda();
-             if(SENSOR4 == 1)
+             if(SENSOR_4 == 1)
                         direita();
      }
 
