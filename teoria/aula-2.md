@@ -6,7 +6,7 @@
 1 - quando tocado.
 	
 ##Exemplo (pg. 18 tutorial):
-```
+```c
 	task main(){
 		SetSensor(IN_1, SENSOR_TOUCH);
 		OnFwd(OUT_AC, 75);
