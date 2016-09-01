@@ -1,0 +1,14 @@
+
+task main(){
+     SetSensor(IN_1, SENSOR_TOUCH);
+     SetSensor(IN_4, SENSOR_TOUCH);
+     
+     int direcao = 1;
+
+     while(1){
+             OnFwd(OUT_AC, 75 * direcao);
+             if(SENSOR_1 == 1 || SENSOR_4 == 1)
+                         direcao *= -1;
+     }
+
+}
