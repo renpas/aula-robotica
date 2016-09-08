@@ -4,9 +4,9 @@
         SetSensorLowspeed(IN_4);
         while(true){
             while(SensorUS(IN_4) > NEAR){
-                OnFwd(OUT_AC, 50);
+                OnFwd(OUT_A, 45);
+                OnFwd(OUT_C, 41);
             }
-            //Off(OUT_AC);
             while(SensorUS(IN_4) < NEAR){
                 Off(OUT_A);
                 OnRev(OUT_C, 25);
