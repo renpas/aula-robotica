@@ -1,0 +1,12 @@
+    task main(){
+        SetSensorLight(IN_1);
+        while(true){
+            if(SENSOR_1 > 60){
+                OnFwd(OUT_A, 45);
+                OnFwd(OUT_C, 41);
+            }else{
+                Off(OUT_AC);
+            }
+            Wait(300);
+        }
+    }
