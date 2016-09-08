@@ -1,0 +1,15 @@
+#define NEAR 30
+
+    task main(){
+        SetSensorLowspeed(IN_4);
+        while(true){
+        
+            if(SensorUS(IN_4) < NEAR){
+                OnFwd(OUT_A, 45);
+                OnFwd(OUT_C, 41);
+            }else{
+                Off(OUT_AC);
+            }
+            Wait(300);
+        }
+    }
