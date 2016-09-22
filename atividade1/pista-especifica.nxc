@@ -1,0 +1,54 @@
+void frente(){
+     OnFwd(OUT_A, 49);
+     OnFwd(OUT_C, 50);
+}
+
+void curva1(){
+    OnFwd(OUT_A, 40);
+    OnFwd(OUT_C, 20);
+    Wait(3000);
+}
+void curva2(){
+     OnFwd(OUT_A, 20);
+     OnFwd(OUT_C, 80);
+     Wait(500);
+}
+void curva3(){
+     Off(OUT_AC);
+     Wait(2000);
+}
+void curva4(){
+     Off(OUT_AC);
+     Wait(2000);
+}
+void curva5(){
+     Off(OUT_AC);
+     Wait(2000);
+}
+
+void vira(int curva){
+
+    switch(curva){
+        case 1: curva1();break;
+        case 2: curva2();break;
+        case 3: curva3();break;
+        case 4: curva4();break;
+        case 5: curva5();break;
+        default:
+             OnRev(OUT_A, 40);
+             OnRev(OUT_C, 40);
+    
+    }
+
+}
+
+task main(){
+     SetSensorLight(IN_1);
+     int curva = 1;
+     while(true){
+         frente();
+         while(SENSOR_1 <= 50);
+         vira(curva++);
+         Off(OUT_AC);
+     }
+}
