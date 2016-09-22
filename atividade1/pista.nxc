@@ -1,0 +1,28 @@
+    
+	void direciona(){
+		//OnFwd(OUT_A, 50);
+		Off(OUT_A);
+		OnRev(OUT_C, 50);
+		Wait(300);
+		Off(OUT_AC);
+    if(SENSOR_1 < 50){
+    return;
+    }
+    Off(OUT_C);
+    OnRev(OUT_A, 60);
+    Wait(400);
+    
+	}
+	
+	task main(){
+        SetSensorLight(IN_1);
+        while(true){
+            if(SENSOR_1 < 50){
+                OnFwd(OUT_C, 41);
+				        OnFwd(OUT_A, 41);
+				        Wait(300);
+            }else{
+                direciona();
+            }
+        }
+    }
