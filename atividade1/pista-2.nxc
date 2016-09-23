@@ -1,0 +1,61 @@
+#define int COR_PRETA = 55;
+#define int VELOCIDADE_FRENTE = 41;
+#define int TEMPO_ANDA_PARA_FRENTE = 200;
+#define int VELOCIDADE_CURVA = 60;
+#define int TEMPO_CURVA= 250;
+
+int eh_melhor_direita = 1;
+
+int verifica(int roda, int eh_melhor_opcao){
+    Off(OUT_AC);
+    OnRev(roda, VELOCIDADE_CURVA);
+
+    if(eh_melhor_opcao)
+        Wait(TEMPO_CURVA);
+    else
+        Wait(TEMPO_CURVA * 2);
+    Off(OUT_AC);
+
+    return SENSOR_1 < COR_PRETA;
+}
+
+int verifica_direita(int eh_melhor_opcao){
+    return verifica(OUT_C);
+}
+
+int verifica_esquerda(int eh_melhor_opcao){
+    return verifica(OUT_A);
+}
+
+void direciona(){
+    if(eh_melhor_direita){
+        int found = verifica_direita(eh_melhor_direita);
+        if(found) return;
+
+        eh_melhor_direita = !eh_melhor_direita;
+        found = verifica_esquerda(eh_melhor_direita);
+    }else{
+        int found = verifica_esquerda(eh_melhor_direita);
+        if(found) return;
+
+        eh_melhor_direita = !eh_melhor_direita;
+        found = verifica_direita(eh_melhor_direita);
+    }
+}
+
+void anda_frente(){
+    OnFwd(OUT_C, VELOCIDADE_FRENTE);
+    OnFwd(OUT_A, VELOCIDADE_FRENTE);                
+}
+
+task main(){
+    SetSensorLight(IN_1);
+    while(true){
+        if(SENSOR_1 < COR_PRETA){
+            anda_frente();
+            Wait(TEMPO_ANDA_PARA_FRENTE);
+        }else{
+            direciona();
+        }
+    }
+}
