@@ -1,28 +1,38 @@
     
-	void direciona(){
+	void direciona(int found){
 		//OnFwd(OUT_A, 50);
-		Off(OUT_A);
-		OnRev(OUT_C, 50);
-		Wait(300);
 		Off(OUT_AC);
-    if(SENSOR_1 < 50){
-    return;
+		if(found)
+  		OnRev(OUT_C, 60);
+  else
+      OnFwd(OUT_C, 60);
+		Wait(250);
+		Off(OUT_AC);
+    if(SENSOR_1 < 55){
+                return;
     }
-    Off(OUT_C);
-    OnRev(OUT_A, 60);
-    Wait(400);
-    
+    if(found)
+        OnRev(OUT_A, 60);
+    else
+        OnFwd(OUT_A, 60);
+    Wait(550);
 	}
 	
 	task main(){
         SetSensorLight(IN_1);
+        int found = 1;
         while(true){
-            if(SENSOR_1 < 50){
+            if(SENSOR_1 < 55){
                 OnFwd(OUT_C, 41);
 				        OnFwd(OUT_A, 41);
-				        Wait(300);
+				        Wait(200);
+				        if(SENSOR_1 < 55){
+                   found = 0;
+				        }else{
+                  found = 1;
+				        }
             }else{
-                direciona();
+                direciona(found);
             }
         }
     }
