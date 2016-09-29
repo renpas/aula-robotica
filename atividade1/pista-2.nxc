@@ -2,7 +2,7 @@ const int COR_PRETA = 55;
 const int VELOCIDADE_FRENTE = 40;
 const int TEMPO_ANDA_PARA_FRENTE = 200;
 const int VELOCIDADE_CURVA = 60;
-const int TEMPO_CURVA= 200;
+const int TEMPO_CURVA= 210;
 
 int eh_melhor_direita = 1;
 
@@ -34,7 +34,7 @@ int verifica_esquerda(int eh_melhor_opcao, int dobro){
 void re(){
     OnFwd(OUT_C, VELOCIDADE_FRENTE);
     OnFwd(OUT_A, VELOCIDADE_FRENTE);
-    Wait(50);
+    Wait(200);
 }
 
 void direciona2(){
@@ -64,8 +64,7 @@ void direciona(){
         eh_melhor_direita = verifica_direita(false,false);
     }
 
-    if(SENSOR_1 > COR_PRETA)
-                direciona2();
+
 }
 
 
@@ -84,6 +83,8 @@ task main(){
             //Wait(20);
         }else{
             direciona();
+            if(SENSOR_1 > COR_PRETA)
+                break;
         }
     }
 }
