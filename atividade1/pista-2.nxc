@@ -1,14 +1,29 @@
-#define int COR_PRETA = 55;
-#define int VELOCIDADE_FRENTE = 41;
-#define int TEMPO_ANDA_PARA_FRENTE = 200;
-#define int VELOCIDADE_CURVA = 60;
-#define int TEMPO_CURVA= 250;
+const int COR_PRETA = 55;
+const int VELOCIDADE_FRENTE = 41;
+const int TEMPO_ANDA_PARA_FRENTE = 200;
+const int VELOCIDADE_CURVA = 40;
+const int VELOCIDADE_MESMA_CURVA = 80;
+const int TEMPO_MESMA_CURVA= 250;
+const int TEMPO_CURVA= 200;
+
+
+const int TEMPO_DE_UMA_MESMA_CURVA= 200;
 
 int eh_melhor_direita = 1;
+unsigned long ultima_curva = 0;
 
-int verifica(int roda, int eh_melhor_opcao){
+
+
+int verifica(byte roda, int eh_melhor_opcao){
+    int velocidade =  VELOCIDADE_CURVA;
+    int tempo =   TEMPO_CURVA;
+    if(CurrentTick() - ultima_curva > TEMPO_DE_UMA_MESMA_CURVA && ultima_curva > 0 ){
+       velocidade = VELOCIDADE_MESMA_CURVA;
+       tempo =     TEMPO_MESMA_CURVA;
+    }
+
     Off(OUT_AC);
-    OnRev(roda, VELOCIDADE_CURVA);
+    OnRev(roda, velocidade);
 
     if(eh_melhor_opcao)
         Wait(TEMPO_CURVA);
@@ -20,32 +35,32 @@ int verifica(int roda, int eh_melhor_opcao){
 }
 
 int verifica_direita(int eh_melhor_opcao){
-    return verifica(OUT_C);
+    return verifica(OUT_C, eh_melhor_opcao);
 }
 
 int verifica_esquerda(int eh_melhor_opcao){
-    return verifica(OUT_A);
+    return verifica(OUT_A, eh_melhor_opcao);
 }
 
 void direciona(){
     if(eh_melhor_direita){
-        int found = verifica_direita(eh_melhor_direita);
+        int found = verifica_direita(true);
         if(found) return;
 
-        eh_melhor_direita = !eh_melhor_direita;
-        found = verifica_esquerda(eh_melhor_direita);
+        eh_melhor_direita = false;
+        eh_melhor_direita = !verifica_esquerda(false);
     }else{
-        int found = verifica_esquerda(eh_melhor_direita);
+        int found = verifica_esquerda(true);
         if(found) return;
-
-        eh_melhor_direita = !eh_melhor_direita;
-        found = verifica_direita(eh_melhor_direita);
+        eh_melhor_direita = verifica_direita(false);
     }
+    
+    ultima_curva = CurrentTick();
 }
 
 void anda_frente(){
     OnFwd(OUT_C, VELOCIDADE_FRENTE);
-    OnFwd(OUT_A, VELOCIDADE_FRENTE);                
+    OnFwd(OUT_A, VELOCIDADE_FRENTE);
 }
 
 task main(){
