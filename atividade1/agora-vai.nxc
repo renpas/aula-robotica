@@ -1,0 +1,46 @@
+const int VELOCIDADE_CURVA = 50;
+const int VELOCIDADE_FRENTE = 40;
+
+void direita(){
+
+Off(OUT_AC);
+    OnFwd(OUT_C, VELOCIDADE_CURVA);
+    Wait(200);
+
+}
+
+void esquerda(){
+
+    Off(OUT_AC);
+    OnFwd(OUT_A, VELOCIDADE_CURVA);
+    Wait(200);
+
+}
+
+void anda_frente(){
+    OnFwd(OUT_C, VELOCIDADE_FRENTE);
+    OnFwd(OUT_A, VELOCIDADE_FRENTE);
+}
+
+task main(){
+    SetSensorLight(IN_1);
+    while(true){
+		direita();
+
+
+        if(SENSOR_1 < 55){
+            anda_frente();
+                        Wait(100);
+            continue;
+        }
+
+		esquerda();
+
+		if(SENSOR_1 < 55){
+            anda_frente();
+
+            Wait(100);
+            continue;
+        }
+    }
+}

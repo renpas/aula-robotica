@@ -1,29 +1,18 @@
 const int COR_PRETA = 55;
-const int VELOCIDADE_FRENTE = 41;
+const int VELOCIDADE_FRENTE = 40;
 const int TEMPO_ANDA_PARA_FRENTE = 200;
-const int VELOCIDADE_CURVA = 40;
-const int VELOCIDADE_MESMA_CURVA = 80;
-const int TEMPO_MESMA_CURVA= 250;
+const int VELOCIDADE_CURVA = 60;
 const int TEMPO_CURVA= 200;
 
-
-const int TEMPO_DE_UMA_MESMA_CURVA= 200;
-
 int eh_melhor_direita = 1;
-unsigned long ultima_curva = 0;
 
-
-
-int verifica(byte roda, int eh_melhor_opcao){
-    int velocidade =  VELOCIDADE_CURVA;
-    int tempo =   TEMPO_CURVA;
-    if(CurrentTick() - ultima_curva > TEMPO_DE_UMA_MESMA_CURVA && ultima_curva > 0 ){
-       velocidade = VELOCIDADE_MESMA_CURVA;
-       tempo =     TEMPO_MESMA_CURVA;
-    }
+int verifica(byte roda, int eh_melhor_opcao, int dobro){
+    int multiplicador = 1;
+    if(dobro)
+             multiplicador++;
 
     Off(OUT_AC);
-    OnRev(roda, velocidade);
+    OnRev(roda, VELOCIDADE_CURVA *  multiplicador);
 
     if(eh_melhor_opcao)
         Wait(TEMPO_CURVA);
@@ -34,29 +23,52 @@ int verifica(byte roda, int eh_melhor_opcao){
     return SENSOR_1 < COR_PRETA;
 }
 
-int verifica_direita(int eh_melhor_opcao){
-    return verifica(OUT_C, eh_melhor_opcao);
+int verifica_direita(int eh_melhor_opcao, int dobro){
+    return verifica(OUT_C, eh_melhor_opcao, dobro);
 }
 
-int verifica_esquerda(int eh_melhor_opcao){
-    return verifica(OUT_A, eh_melhor_opcao);
+int verifica_esquerda(int eh_melhor_opcao, int dobro){
+    return verifica(OUT_A, eh_melhor_opcao, dobro);
+}
+
+void re(){
+    OnFwd(OUT_C, VELOCIDADE_FRENTE);
+    OnFwd(OUT_A, VELOCIDADE_FRENTE);
+    Wait(50);
+}
+
+void direciona2(){
+    if(eh_melhor_direita){
+        int found = verifica_direita(true,true);
+        if(found) return;
+
+        eh_melhor_direita = false;
+        eh_melhor_direita = !verifica_esquerda(false,true);
+    }else{
+        int found = verifica_esquerda(true,true);
+        if(found) return;
+        eh_melhor_direita = verifica_direita(false,true);
+    }
 }
 
 void direciona(){
     if(eh_melhor_direita){
-        int found = verifica_direita(true);
+        int found = verifica_direita(true,false);
         if(found) return;
 
         eh_melhor_direita = false;
-        eh_melhor_direita = !verifica_esquerda(false);
+        eh_melhor_direita = !verifica_esquerda(false,false);
     }else{
-        int found = verifica_esquerda(true);
+        int found = verifica_esquerda(true,false);
         if(found) return;
-        eh_melhor_direita = verifica_direita(false);
+        eh_melhor_direita = verifica_direita(false,false);
     }
-    
-    ultima_curva = CurrentTick();
+
+    if(SENSOR_1 > COR_PRETA)
+                direciona2();
 }
+
+
 
 void anda_frente(){
     OnFwd(OUT_C, VELOCIDADE_FRENTE);
@@ -68,7 +80,8 @@ task main(){
     while(true){
         if(SENSOR_1 < COR_PRETA){
             anda_frente();
-            Wait(TEMPO_ANDA_PARA_FRENTE);
+            while(SENSOR_1 < COR_PRETA);
+            //Wait(20);
         }else{
             direciona();
         }
