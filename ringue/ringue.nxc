@@ -1,10 +1,10 @@
 task main(){
 	SetSensorLight(IN_1);
 	while(true){
-		if(SENSOR_1 > 70){
+		if(SENSOR_1 > 60){
 			OnFwd(OUT_C, 80);
 			OnFwd(OUT_A, 80);
-			Wait(300);
+			Wait(100);
 		}else{
 			Off(OUT_A);
 			OnRev(OUT_C, 80);
