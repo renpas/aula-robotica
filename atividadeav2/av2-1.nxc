@@ -29,9 +29,9 @@ void derrubaAPorraDaBola(){
 }
 
 void gira(){
-	OnFwd(OUT_B,-5);  
-	OnFwd(OUT_C, 75);
-	Wait(1000);
+	//OnFwd(OUT_B,-5);
+	OnRev(OUT_C, 75);
+	Wait(500);
 	Off(OUT_BC);
 }
 
